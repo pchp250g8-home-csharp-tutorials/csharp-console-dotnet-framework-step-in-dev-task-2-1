@@ -15,8 +15,9 @@ namespace Task_2_1_en
             uint n; // interference level value
             uint c = 0; // counter for safe readings
             uint d = 0; // variable to store the length of the safe reading segment
-            uint m = 0; // maximum length of the safe reading segment
-                    // Data input
+            uint m = 0; // local maximum length of the safe reading segment
+            uint max_len = 0; // final maximum of the length of the safe reading segment
+            // Data input
             Console.WriteLine("Enter the safety limits for readings");
             Console.Write("Lower limit: ");
             uint.TryParse(Console.ReadLine(), out a);
@@ -41,11 +42,19 @@ namespace Task_2_1_en
                 (the chain of safe data was interrupted), the maximum length
                 is the old counter value (variable "d"). 
                 Otherwise, it is the current (new) counter value (variable "c").
+                Intermediate result.
                 */
                 if (d > c)
                     m = d;
                 else
                     m = c;
+                /*Final maximum length of the segment
+                where readings are safe.*/
+                if (m > max_len)
+                {
+                    max_len = m;
+                }
+
                 uint.TryParse(Console.ReadLine(), out n); // input the next data point
             }
             // Output information to the screen
