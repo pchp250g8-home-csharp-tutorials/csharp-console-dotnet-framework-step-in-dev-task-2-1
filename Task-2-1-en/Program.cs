@@ -54,7 +54,6 @@ namespace Task_2_1_en
                 {
                     max_len = m;
                 }
-
                 uint.TryParse(Console.ReadLine(), out n); // input the next data point
             }
             // Output information to the screen
